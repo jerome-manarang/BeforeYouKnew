@@ -1,5 +1,5 @@
 import React from "react";
-import '../app/globals.css';
+import './Home.css';
 const Home = ({ onStart }) => {
     return (
         <div className="home-container">
