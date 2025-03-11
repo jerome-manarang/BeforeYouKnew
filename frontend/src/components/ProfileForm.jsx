@@ -39,8 +39,8 @@ const ProfileForm = ({ onNext }) => {
   };
 
   return (
-    <div> 
-      <h2 className="question">Tell me about your younger self</h2>
+    <div className="question"> 
+      <h2>Tell me about your younger self</h2>
 
       {step === 1 && (
         <>
