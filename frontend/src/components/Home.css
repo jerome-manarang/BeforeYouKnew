@@ -15,6 +15,8 @@
     font-size: 5rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    opacity: 0; /* Start hidden */
+    animation: fadeIn 1.5s ease-out forwards; /* Smooth fade-in */
 }
 
 .start-button {
@@ -32,3 +34,16 @@
 .start-button:hover {
     transform: scale(1.1);
 }
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
