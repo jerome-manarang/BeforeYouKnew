@@ -1,6 +1,9 @@
 
-.description-container {
+.disclaimer-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+ 
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -8,6 +11,12 @@
     width: 100vw; /* Ensure it takes full screen width */
     background-color: #1B1919;
     color: white;
+    text-align: center;
+}
+.description {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
@@ -27,6 +36,9 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+   
+    justify-content: center;
+   
 }
 
 .start-button:hover {
