@@ -1,10 +1,25 @@
+/* TODO:
+
+1. each question should be its own page
+2. i want bubbles to appear, and the user can select these bubbles. 
+*/
+
+
 import React, { useState } from "react";
 import axios from "axios";
+import GeneralQuestions from './GeneralQuestions.jsx';
+import PersonalQuestions from './PersonalQuestions.jsx';
 import './ProfileForm.css';
 
 const ProfileForm = ({ onNext }) => {
   const [step, setStep] = useState(1); // Track which section is shown
   const [profile, setProfile] = useState({
+    parents: "",
+    parent_reason: "",
+    pets: "",
+    home_detail: "",
+    education:"",
+    passions:"",
     description: "",
     notable_events: "",
     hobbies: "",
@@ -14,7 +29,7 @@ const ProfileForm = ({ onNext }) => {
   });
 
   const handleNext = () => {
-    if (step < 3) {
+    if (step < 4) {
       setStep(step + 1);
     } else {
       handleSubmit();
@@ -38,70 +53,35 @@ const ProfileForm = ({ onNext }) => {
     }
   };
 
+  const handleBubbleSelect = (name, value) => {
+    setProfile({ ...profile, [name]: value });
+  };
+
   return (
     <div className="question"> 
-      <h2>Tell me about your younger self</h2>
+      
 
       {step === 1 && (
         <>
-          <input
-            type="text"
-            name="description"
-            placeholder="How were you as a kid?"
-            value={profile.description}
-            onChange={handleChange}
-            className="p-2 text-black rounded-md w-64 mb-3"
-          />
-          <input
-            type="text"
-            name="notable_events"
-            placeholder="Notable childhood event?"
-            value={profile.notable_events}
-            onChange={handleChange}
-            className="p-2 text-black rounded-md w-64 mb-3"
-          />
-          <input
-            type="text"
-            name="hobbies"
-            placeholder="What hobbies did you love?"
-            value={profile.hobbies}
-            onChange={handleChange}
-            className="p-2 text-black rounded-md w-64 mb-3"
-          />
+        <h2>It is time for us to connect to yourself. Please try to provide
+        as much detail as possible for you to reach a better signal with them.
+      </h2>
         </>
       )}
 
       {step === 2 && (
         <>
-          <input
-            type="text"
-            name="favorite_memory"
-            placeholder="What’s your favorite childhood memory?"
-            value={profile.favorite_memory}
-            onChange={handleChange}
-            className="p-2 text-black rounded-md w-64 mb-3"
-          />
-          <input
-            type="text"
-            name="fears"
-            placeholder="What were you afraid of?"
-            value={profile.fears}
-            onChange={handleChange}
-            className="p-2 text-black rounded-md w-64 mb-3"
-          />
+          <PersonalQuestions profile={profile} setProfile={setProfile} />
         </>
       )}
 
       {step === 3 && (
         <>
-          <input
-            type="text"
-            name="childhood_dream"
-            placeholder="What did you want to be when you grew up?"
-            value={profile.childhood_dream}
-            onChange={handleChange}
-            className="p-2 text-black rounded-md w-64 mb-3"
-          />
+          <GeneralQuestions
+            profile={profile}
+            setProfile={setProfile}
+            handleBubbleSelect={handleBubbleSelect}
+          ></GeneralQuestions>
         </>
       )}
 

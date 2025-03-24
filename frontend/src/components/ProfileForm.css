@@ -3,11 +3,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw; /* Ensure it takes full screen width */
+    height: auto;               /* Allow it to grow */
+    min-height: 100vh;          /* Still fills screen if short */
     background-color: #1B1919;
     color: white;
     text-align: center;
-}
-
+    padding: 2rem;              /* Optional spacing */
+  }
+  
